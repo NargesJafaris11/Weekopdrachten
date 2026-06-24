@@ -7,6 +7,7 @@
     Console.WriteLine("3. Hoger-Lager Spel");
     Console.WriteLine("4. Do-While");
     Console.WriteLine("5. FizzBuzz");
+    Console.WriteLine("6. Foreach");
     Console.WriteLine("0. Afsluiten");
     Console.Write("Kies een opdracht: ");
 
@@ -28,6 +29,9 @@
             break;
         case "5":
             Weekopdracht5();
+            break;
+        case "6":
+            Weekopdracht6();
             break;
         case "0":
             return;
@@ -215,6 +219,36 @@ static void Weekopdracht5()
         else
         {
             Console.WriteLine(i);
+        }
+    }
+
+    Pause();
+}
+static void Weekopdracht6()
+{
+    Console.Clear();
+    Console.WriteLine("Weekopdracht 6: Foreach");
+    Console.WriteLine();
+
+    List<string> namen = new List<string>
+    {
+        "Anna",
+        "Bob",
+        "Charlie",
+        "Dave",
+        "Eva",
+        "Frank",
+        "Grace",
+        "Harry",
+        "Ivy",
+        "Jack"
+    };
+
+    foreach (string naam in namen)
+    {
+        if (naam.Length < 5)
+        {
+            Console.WriteLine(naam);
         }
     }
 
