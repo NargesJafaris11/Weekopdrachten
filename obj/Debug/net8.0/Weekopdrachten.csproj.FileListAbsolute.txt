@@ -1,0 +1,14 @@
+/Users/nargesjafari/Weekopdrachten/bin/Debug/net8.0/Weekopdrachten
+/Users/nargesjafari/Weekopdrachten/bin/Debug/net8.0/Weekopdrachten.deps.json
+/Users/nargesjafari/Weekopdrachten/bin/Debug/net8.0/Weekopdrachten.runtimeconfig.json
+/Users/nargesjafari/Weekopdrachten/bin/Debug/net8.0/Weekopdrachten.dll
+/Users/nargesjafari/Weekopdrachten/bin/Debug/net8.0/Weekopdrachten.pdb
+/Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/Weekopdrachten.GeneratedMSBuildEditorConfig.editorconfig
+/Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/Weekopdrachten.AssemblyInfoInputs.cache
+/Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/Weekopdrachten.AssemblyInfo.cs
+/Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/Weekopdrachten.csproj.CoreCompileInputs.cache
+/Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/Weekopdrachten.dll
+/Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/refint/Weekopdrachten.dll
+/Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/Weekopdrachten.pdb
+/Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/Weekopdrachten.genruntimeconfig.cache
+/Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/ref/Weekopdrachten.dll
