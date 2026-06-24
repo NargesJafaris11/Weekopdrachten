@@ -12,3 +12,4 @@
 /Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/Weekopdrachten.pdb
 /Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/Weekopdrachten.genruntimeconfig.cache
 /Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/ref/Weekopdrachten.dll
+/Users/nargesjafari/Weekopdrachten/obj/Debug/net8.0/Weekopdrachten.sourcelink.json
