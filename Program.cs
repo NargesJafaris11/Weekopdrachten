@@ -131,7 +131,39 @@ static void Weekopdracht2()
 static void Weekopdracht3()
 {
     Console.Clear();
-    Console.WriteLine("Weekopdracht 3");
+    Console.WriteLine("Weekopdracht 3: Hoger-Lager");
+
+    int secretNumber = Random.Shared.Next(1, 100);
+    int guess = 0;
+    int attempts = 0;
+
+    while (guess != secretNumber)
+    {
+        Console.Write("Raad een getal tussen 1 en 99: ");
+
+        bool isValidNumber = int.TryParse(Console.ReadLine(), out guess);
+
+        if (!isValidNumber)
+        {
+            Console.WriteLine("Ongeldige invoer.");
+            continue;
+        }
+
+        attempts++;
+
+        if (guess < secretNumber)
+        {
+            Console.WriteLine("Hoger!");
+        }
+        else if (guess > secretNumber)
+        {
+            Console.WriteLine("Lager!");
+        }
+    }
+
+    Console.WriteLine();
+    Console.WriteLine($"Gefeliciteerd! Je hebt het getal geraden in {attempts} pogingen.");
+
     Pause();
 }
 
