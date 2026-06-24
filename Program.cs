@@ -1,6 +1,4 @@
-﻿using System;
-
-while (true)
+﻿while (true)
 {
     Console.Clear();
     Console.WriteLine("=== Weekopdrachten C# ===");
@@ -170,7 +168,27 @@ static void Weekopdracht3()
 static void Weekopdracht4()
 {
     Console.Clear();
-    Console.WriteLine("Weekopdracht 4");
+    Console.WriteLine("Weekopdracht 4: Do-While");
+
+    int number;
+    bool isValid;
+
+    do
+    {
+        Console.Write("Voer een getal in tussen 1 en 10: ");
+
+        isValid = int.TryParse(Console.ReadLine(), out number);
+
+        if (!isValid || number < 1 || number > 10)
+        {
+            Console.WriteLine("Ongeldige invoer. Probeer opnieuw.");
+        }
+
+    } while (!isValid || number < 1 || number > 10);
+
+    Console.WriteLine();
+    Console.WriteLine($"Je hebt gekozen voor het getal {number}.");
+
     Pause();
 }
 
