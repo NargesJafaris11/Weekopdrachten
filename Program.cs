@@ -9,6 +9,7 @@
     Console.WriteLine("5. FizzBuzz");
     Console.WriteLine("6. Foreach");
     Console.WriteLine("7. Break");
+    Console.WriteLine("8. Continue");
     Console.WriteLine("0. Afsluiten");
     Console.Write("Kies een opdracht: ");
 
@@ -36,6 +37,9 @@
             break;
         case "7":
             Weekopdracht7();
+            break;
+        case "8":
+            Weekopdracht8();
             break;
         case "0":
             return;
@@ -228,6 +232,7 @@ static void Weekopdracht5()
 
     Pause();
 }
+
 static void Weekopdracht6()
 {
     Console.Clear();
@@ -258,6 +263,7 @@ static void Weekopdracht6()
 
     Pause();
 }
+
 static void Weekopdracht7()
 {
     Console.Clear();
@@ -292,6 +298,25 @@ static void Weekopdracht7()
         }
 
         getal++;
+    }
+
+    Pause();
+}
+
+static void Weekopdracht8()
+{
+    Console.Clear();
+    Console.WriteLine("Weekopdracht 8: Continue");
+    Console.WriteLine();
+
+    for (int i = 1; i <= 50; i++)
+    {
+        if (i % 3 == 0)
+        {
+            continue;
+        }
+
+        Console.WriteLine(i);
     }
 
     Pause();
