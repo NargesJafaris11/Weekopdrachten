@@ -10,6 +10,8 @@
     Console.WriteLine("6. Foreach");
     Console.WriteLine("7. Break");
     Console.WriteLine("8. Continue");
+    Console.WriteLine("9. Ternary Operator");
+    Console.WriteLine("10. Quiz");
     Console.WriteLine("0. Afsluiten");
     Console.Write("Kies een opdracht: ");
 
@@ -40,6 +42,12 @@
             break;
         case "8":
             Weekopdracht8();
+            break;
+        case "9":
+            Weekopdracht9();
+            break;
+        case "10":
+            Weekopdracht10();
             break;
         case "0":
             return;
@@ -318,6 +326,135 @@ static void Weekopdracht8()
 
         Console.WriteLine(i);
     }
+
+    Pause();
+}
+
+static void Weekopdracht9()
+{
+    Console.Clear();
+    Console.WriteLine("Weekopdracht 9: Ternary Operator");
+    Console.Write("Voer een score in (0-100): ");
+
+    bool isValid = int.TryParse(Console.ReadLine(), out int score);
+
+    if (!isValid || score < 0 || score > 100)
+    {
+        Console.WriteLine("Ongeldige invoer.");
+        Pause();
+        return;
+    }
+
+    string beoordeling =
+        score < 50 ? "Slecht" :
+        score < 65 ? "Matig" :
+        score < 75 ? "Voldoende" :
+        score < 90 ? "Goed" :
+        "Uitstekend";
+
+    Console.WriteLine($"Beoordeling: {beoordeling}");
+
+    Pause();
+}
+
+static void Weekopdracht10()
+{
+    Console.Clear();
+    Console.WriteLine("Weekopdracht 10: Quiz");
+    Console.WriteLine();
+
+    int score = 0;
+
+    Console.WriteLine("Vraag 1: Wat is de hoofdstad van Nederland?");
+    Console.WriteLine("a) Rotterdam");
+    Console.WriteLine("b) Amsterdam");
+    Console.WriteLine("c) Utrecht");
+    string antwoord1 = (Console.ReadLine() ?? "").ToLower().Trim();
+
+    if (antwoord1 == "b" || antwoord1 == "amsterdam")
+    {
+        score++;
+        Console.WriteLine("Goed!");
+    }
+    else
+    {
+        Console.WriteLine("Fout!");
+    }
+
+    Console.WriteLine();
+
+    Console.WriteLine("Vraag 2: Hoeveel dagen heeft een week?");
+    Console.WriteLine("a) 5");
+    Console.WriteLine("b) 6");
+    Console.WriteLine("c) 7");
+    string antwoord2 = (Console.ReadLine() ?? "").ToLower().Trim();
+
+    if (antwoord2 == "c" || antwoord2 == "7")
+    {
+        score++;
+        Console.WriteLine("Goed!");
+    }
+    else
+    {
+        Console.WriteLine("Fout!");
+    }
+
+    Console.WriteLine();
+
+    Console.WriteLine("Vraag 3: Welke taal gebruiken we hier?");
+    Console.WriteLine("a) C#");
+    Console.WriteLine("b) Java");
+    Console.WriteLine("c) Python");
+    string antwoord3 = (Console.ReadLine() ?? "").ToLower().Trim();
+
+    if (antwoord3 == "a" || antwoord3 == "c#" || antwoord3 == "csharp")
+    {
+        score++;
+        Console.WriteLine("Goed!");
+    }
+    else
+    {
+        Console.WriteLine("Fout!");
+    }
+
+    Console.WriteLine();
+
+    Console.WriteLine("Vraag 4: Hoeveel maanden heeft een jaar?");
+    Console.WriteLine("a) 10");
+    Console.WriteLine("b) 12");
+    Console.WriteLine("c) 14");
+    string antwoord4 = (Console.ReadLine() ?? "").ToLower().Trim();
+
+    if (antwoord4 == "b" || antwoord4 == "12")
+    {
+        score++;
+        Console.WriteLine("Goed!");
+    }
+    else
+    {
+        Console.WriteLine("Fout!");
+    }
+
+    Console.WriteLine();
+
+    Console.WriteLine("Vraag 5: Welk keyword gebruik je om een klasse te laten erven van een andere klasse?");
+    Console.WriteLine("a) inherits");
+    Console.WriteLine("b) extends");
+    Console.WriteLine("c) :");
+    string antwoord5 = (Console.ReadLine() ?? "").ToLower().Trim();
+
+    if (antwoord5 == "c" || antwoord5 == ":")
+    {
+        score++;
+        Console.WriteLine("Goed!");
+    }
+    else
+    {
+        Console.WriteLine("Fout!");
+    }
+
+    Console.WriteLine();
+    Console.WriteLine($"Je score is: {score}/5");
 
     Pause();
 }
