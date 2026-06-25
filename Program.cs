@@ -69,7 +69,7 @@ while (true)
             Weekopdracht16();
             break;
         case "17":
-            Weekopdracht17();
+            Weekopdrachten.Opdracht17.Weekopdracht17.Run();
             break;
         case "0":
             return;
