@@ -1,4 +1,6 @@
-﻿while (true)
+﻿using Weekopdrachten.Opdracht16;
+
+while (true)
 {
     Console.Clear();
     Console.WriteLine("=== Weekopdrachten C# ===");
@@ -12,6 +14,11 @@
     Console.WriteLine("8. Continue");
     Console.WriteLine("9. Ternary Operator");
     Console.WriteLine("10. Quiz");
+    Console.WriteLine("13. FizzBuzzBang");
+    Console.WriteLine("14. Fibonacci");
+    Console.WriteLine("15. NotSoCleanCode");
+    Console.WriteLine("16. DigiSchool");
+    Console.WriteLine("17. Collections");
     Console.WriteLine("0. Afsluiten");
     Console.Write("Kies een opdracht: ");
 
@@ -48,6 +55,21 @@
             break;
         case "10":
             Weekopdracht10();
+            break;
+        case "13":
+            Weekopdracht13();
+            break;
+        case "14":
+            Weekopdracht14A();
+            break;
+        case "15":
+            Weekopdrachten.Opdracht15.NotSoCleanCodeRefactored.Run();
+            break;
+        case "16":
+            Weekopdracht16();
+            break;
+        case "17":
+            Weekopdracht17();
             break;
         case "0":
             return;
@@ -247,18 +269,8 @@ static void Weekopdracht6()
     Console.WriteLine("Weekopdracht 6: Foreach");
     Console.WriteLine();
 
-    List<string> namen = new List<string>
-    {
-        "Anna",
-        "Bob",
-        "Charlie",
-        "Dave",
-        "Eva",
-        "Frank",
-        "Grace",
-        "Harry",
-        "Ivy",
-        "Jack"
+    List<string> namen = new List<string> {
+        "Anna", "Bob", "Charlie", "Dave", "Eva", "Frank", "Grace", "Harry", "Ivy", "Jack"
     };
 
     foreach (string naam in namen)
@@ -458,3 +470,201 @@ static void Weekopdracht10()
 
     Pause();
 }
+
+static void Weekopdracht13()
+{
+    Console.Clear();
+    Console.WriteLine("Weekopdracht 13: FizzBuzzBang");
+    Console.WriteLine();
+
+    for (int i = 1; i <= 100; i++)
+    {
+        string output = "";
+
+        if (i % 3 == 0)
+            output += "Fizz";
+
+        if (i % 5 == 0)
+            output += "Buzz";
+
+        if (i % 7 == 0)
+            output += "Bang";
+
+        Console.WriteLine(string.IsNullOrEmpty(output)
+            ? i.ToString()
+            : output);
+    }
+
+    Pause();
+}
+
+static void Weekopdracht14A()
+{
+    Console.Clear();
+    Console.WriteLine("Fibonacci");
+
+    Console.Write("Hoeveel getallen wil je zien? ");
+    int aantal = int.Parse(Console.ReadLine());
+
+    Console.WriteLine("\nIteratief:");
+    FibonacciIteratief(aantal);
+
+    Console.WriteLine("\nRecursief:");
+    for (int i = 0; i < aantal; i++)
+    {
+        Console.Write(FibonacciRecursief(i) + " ");
+    }
+
+    Console.WriteLine("\n\nDynamisch:");
+    FibonacciDynamisch(aantal);
+
+    Pause();
+}
+
+static void FibonacciIteratief(int aantal)
+{
+    int a = 0;
+    int b = 1;
+
+    for (int i = 0; i < aantal; i++)
+    {
+        Console.Write(a + " ");
+
+        int temp = a + b;
+        a = b;
+        b = temp;
+    }
+
+    Console.WriteLine();
+}
+
+static int FibonacciRecursief(int n)
+{
+    if (n <= 1)
+    {
+        return n;
+    }
+
+    return FibonacciRecursief(n - 1) + FibonacciRecursief(n - 2);
+}
+
+static void FibonacciDynamisch(int aantal)
+{
+    int[] fib = new int[aantal];
+
+    fib[0] = 0;
+
+    if (aantal > 1)
+    {
+        fib[1] = 1;
+    }
+
+    for (int i = 2; i < aantal; i++)
+    {
+        fib[i] = fib[i - 1] + fib[i - 2];
+    }
+
+    foreach (int getal in fib)
+    {
+        Console.Write(getal + " ");
+    }
+
+    Console.WriteLine();
+}
+
+static void Weekopdracht16()
+{
+    Console.Clear();
+
+    var teacher = new Teacher(
+        "Tom",
+        "tom@school.nl",
+        40,
+        "C#",
+        10);
+
+    var student = new Student(
+        "Narges",
+        "narges@student.nl",
+        30,
+        "S12345",
+        "HBO-ICT");
+
+    Console.WriteLine(teacher);
+    Console.WriteLine(student);
+
+    Console.WriteLine();
+
+    Material book = new Book(
+        "C# Boek",
+        "Docent",
+        2024,
+        250);
+
+    Material video = new Video(
+        "OOP Uitleg",
+        "Docent",
+        2024,
+        15);
+
+    book.DisplayInfo();
+    video.DisplayInfo();
+
+    Pause();
+}
+
+static void Weekopdracht17()
+{
+    Console.Clear();
+    Console.WriteLine("Weekopdracht 17-1: Contactenlijst");
+    
+    List<string> contacts = new List<string>
+    {
+        "Emma Mulder",
+        "Sara De Groot",
+        "Emma Bakker",
+        "Milan Van Dijk",
+        "Emma Smit",
+        "Daan Meijer",
+        "Julia Visser",
+        "Noah Mulder",
+        "Julia Smit",
+        "Sara Van Dijk",
+        "Levi De Groot",
+        "Tess Visser",
+        "Sem Smit",
+        "Levi Visser",
+        "Sara De Boer"
+    };
+
+    for (int i = 0; i < contacts.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}. {contacts[i]}");
+    }
+
+    Console.WriteLine();
+    Console.Write("Welk contact wil je verwijderen? Kies nummer: ");
+
+    if (int.TryParse(Console.ReadLine(), out int choice) &&
+        choice >= 1 &&
+        choice <= contacts.Count)
+    {
+        Console.WriteLine($"{contacts[choice - 1]} is verwijderd.");
+        contacts.RemoveAt(choice - 1);
+    }
+    else
+    {
+        Console.WriteLine("Ongeldige keuze.");
+    }
+
+    Console.WriteLine();
+    Console.WriteLine("Nieuwe contactenlijst:");
+
+    for (int i = 0; i < contacts.Count; i++)
+    {
+        Console.WriteLine($"{i + 1}. {contacts[i]}");
+    }
+
+    Pause();
+}
+
