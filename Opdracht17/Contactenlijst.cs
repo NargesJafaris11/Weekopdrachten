@@ -7,6 +7,8 @@ public static class Contactenlijst
         Console.Clear();
             Console.WriteLine("Weekopdracht 17-1: Contactenlijst");
             
+            /* List gekozen omdat contacten op volgorde staan en eenvoudig op index
+            opgehaald en verwijderd kunnen worden.*/
             List<string> contacts = new List<string>
             {
                 "Emma Mulder",

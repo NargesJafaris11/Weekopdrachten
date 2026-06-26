@@ -24,7 +24,7 @@ public static class Weekopdracht17
                 Contactenlijst.Run();
                 break;
 
-           /* case "2":
+            case "2":
                 Encyclopedie.Run();
                 break;
 
@@ -50,7 +50,7 @@ public static class Weekopdracht17
 
             case "8":
                 ContainerTerminal.Run();
-                break;*/
+                break;
         }
     }
 }
