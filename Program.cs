@@ -23,6 +23,7 @@ while (true)
     Console.WriteLine("18. OOP basics");
     Console.WriteLine("19. W-Park");
     Console.WriteLine("20. Floris");
+    Console.WriteLine("21. Polymorfisme");
     Console.WriteLine("0. Afsluiten");
     Console.Write("Kies een opdracht: ");
 
@@ -83,6 +84,9 @@ while (true)
             break;
         case "20":
             Weekopdrachten.Opdracht20.Weekopdracht20.Run();
+            break;
+        case "21":
+            Weekopdrachten.Opdracht20.Weekopdracht21.Run();
             break;
         case "0":
             return;
