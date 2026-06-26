@@ -25,6 +25,7 @@ while (true)
     Console.WriteLine("20. Floris");
     Console.WriteLine("21. Polymorfisme");
     Console.WriteLine("22. CSV files");
+    Console.WriteLine("23. Personeel");
     Console.WriteLine("0. Afsluiten");
     Console.Write("Kies een opdracht: ");
 
@@ -91,6 +92,9 @@ while (true)
             break;
         case "22":
             await Weekopdrachten.Opdracht22.Weekopdracht22.Run();
+            break;
+        case "23":
+            await Weekopdrachten.Opdracht23.Weekopdracht23.Run();
             break;
         case "0":
             return;
