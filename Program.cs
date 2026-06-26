@@ -21,6 +21,7 @@ while (true)
     Console.WriteLine("16. DigiSchool");
     Console.WriteLine("17. Collections");
     Console.WriteLine("18. OOP basics");
+    Console.WriteLine("19. W-Park");
     Console.WriteLine("0. Afsluiten");
     Console.Write("Kies een opdracht: ");
 
@@ -75,6 +76,9 @@ while (true)
             break;
         case "18":
             Weekopdracht18.Run();
+            break;
+        case "19":
+            Weekopdrachten.Opdracht19.Weekopdracht19.Run();
             break;
         case "0":
             return;
