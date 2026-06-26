@@ -28,6 +28,7 @@ while (true)
     Console.WriteLine("23. Personeel");
     Console.WriteLine("24. Queue Threads");
     Console.WriteLine("25. Strategy Printer");
+    Console.WriteLine("26. Boter-kaas-eieren");
     Console.WriteLine("0. Afsluiten");
     Console.Write("Kies een opdracht: ");
 
@@ -103,6 +104,9 @@ while (true)
             break;
         case "25":
             Weekopdrachten.Opdracht25.Weekopdracht25.Run();
+            break;
+        case "26":
+            Weekopdrachten.Opdracht26.Weekopdracht26.Run();
             break;
         case "0":
             return;
