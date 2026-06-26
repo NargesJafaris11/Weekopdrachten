@@ -1,4 +1,5 @@
 ﻿using Weekopdrachten.Opdracht16;
+using Weekopdrachten.Opdracht18;
 
 while (true)
 {
@@ -19,6 +20,7 @@ while (true)
     Console.WriteLine("15. NotSoCleanCode");
     Console.WriteLine("16. DigiSchool");
     Console.WriteLine("17. Collections");
+    Console.WriteLine("18. OOP basics");
     Console.WriteLine("0. Afsluiten");
     Console.Write("Kies een opdracht: ");
 
@@ -70,6 +72,9 @@ while (true)
             break;
         case "17":
             Weekopdrachten.Opdracht17.Weekopdracht17.Run();
+            break;
+        case "18":
+            Weekopdracht18.Run();
             break;
         case "0":
             return;
