@@ -1,3 +1,5 @@
+using Weekopdrachten.Helpers;
+
 namespace Weekopdrachten.Opdracht20;
 
 public interface IDrivable
@@ -17,12 +19,12 @@ public interface ICargoCarrier
 
 public abstract class Vehicle
 {
-    public string Color { get; set; }
-
     protected Vehicle(string color)
     {
         Color = color;
     }
+
+    public string Color { get; set; }
 
     public void StartEngine()
     {
@@ -65,14 +67,14 @@ public class Truck : Vehicle, IDrivable, ICargoCarrier
     {
     }
 
-    public void Drive()
-    {
-        Console.WriteLine($"Driving a {Color.ToLower()} truck");
-    }
-
     public void LoadCargo()
     {
         Console.WriteLine($"Loading cargo in {Color.ToLower()} truck");
+    }
+
+    public void Drive()
+    {
+        Console.WriteLine($"Driving a {Color.ToLower()} truck");
     }
 }
 
@@ -99,6 +101,11 @@ public class CargoPlane : Vehicle, IDrivable, IFlyable, ICargoCarrier
     {
     }
 
+    public void LoadCargo()
+    {
+        Console.WriteLine($"Loading cargo in {Color.ToLower()} cargo plane");
+    }
+
     public void Drive()
     {
         Console.WriteLine($"Driving a {Color.ToLower()} cargo plane on the ground");
@@ -107,11 +114,6 @@ public class CargoPlane : Vehicle, IDrivable, IFlyable, ICargoCarrier
     public void Fly()
     {
         Console.WriteLine($"Flying a {Color.ToLower()} cargo plane");
-    }
-
-    public void LoadCargo()
-    {
-        Console.WriteLine($"Loading cargo in {Color.ToLower()} cargo plane");
     }
 }
 
@@ -146,30 +148,19 @@ public static class Weekopdracht20
             new CargoPlane("Blue")
         };
 
-        foreach (Vehicle vehicle in vehicles)
+        foreach (var vehicle in vehicles)
         {
             vehicle.StartEngine();
 
-            if (vehicle is IDrivable drivable)
-            {
-                drivable.Drive();
-            }
+            if (vehicle is IDrivable drivable) drivable.Drive();
 
-            if (vehicle is IFlyable flyable)
-            {
-                flyable.Fly();
-            }
+            if (vehicle is IFlyable flyable) flyable.Fly();
 
-            if (vehicle is ICargoCarrier cargoCarrier)
-            {
-                cargoCarrier.LoadCargo();
-            }
+            if (vehicle is ICargoCarrier cargoCarrier) cargoCarrier.LoadCargo();
 
             vehicle.StopEngine();
             Console.WriteLine();
         }
-
-        Console.WriteLine("Druk op een toets...");
-        Console.ReadKey();
+        ConsoleHelper.Pause();
     }
 }

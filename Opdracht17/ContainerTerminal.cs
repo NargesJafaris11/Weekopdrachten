@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace Weekopdrachten.Opdracht17;
 
 public static class ContainerTerminal
@@ -23,21 +20,15 @@ public static class ContainerTerminal
         // De bovenste container moet als eerste verplaatst worden.
         List<Stack<string>> stacks = new();
 
-        for (int i = 0; i < 10; i++)
-        {
-            stacks.Add(new Stack<string>());
-        }
+        for (var i = 0; i < 10; i++) stacks.Add(new Stack<string>());
 
-        int stackIndex = 0;
+        var stackIndex = 0;
 
-        foreach (string container in containers)
+        foreach (var container in containers)
         {
             stacks[stackIndex].Push(container);
 
-            if (stacks[stackIndex].Count == 5)
-            {
-                stackIndex++;
-            }
+            if (stacks[stackIndex].Count == 5) stackIndex++;
         }
 
         while (true)
@@ -51,7 +42,7 @@ public static class ContainerTerminal
             Console.WriteLine("0. Terug");
             Console.Write("Keuze: ");
 
-            string keuze = Console.ReadLine() ?? "";
+            var keuze = Console.ReadLine() ?? "";
 
             switch (keuze)
             {
@@ -72,10 +63,9 @@ public static class ContainerTerminal
     private static void VoegContainerToe(List<Stack<string>> stacks)
     {
         Console.Write("Container nummer: ");
-        string nummer = Console.ReadLine() ?? "";
+        var nummer = Console.ReadLine() ?? "";
 
         foreach (Stack<string> stack in stacks)
-        {
             if (stack.Count < 5)
             {
                 stack.Push(nummer);
@@ -83,7 +73,6 @@ public static class ContainerTerminal
                 Console.ReadKey();
                 return;
             }
-        }
 
         Console.WriteLine("Alle stapels zijn vol.");
         Console.ReadKey();
@@ -92,17 +81,16 @@ public static class ContainerTerminal
     private static void HaalContainerOp(List<Stack<string>> stacks)
     {
         Console.Write("Welke container wil je ophalen? ");
-        string gezocht = Console.ReadLine() ?? "";
+        var gezocht = Console.ReadLine() ?? "";
 
-        for (int i = 0; i < stacks.Count; i++)
-        {
+        for (var i = 0; i < stacks.Count; i++)
             if (stacks[i].Contains(gezocht))
             {
                 Console.WriteLine($"Container gevonden op stapel {i + 1}.");
 
                 while (stacks[i].Peek() != gezocht)
                 {
-                    string bovenste = stacks[i].Pop();
+                    var bovenste = stacks[i].Pop();
                     Console.WriteLine($"Verplaats container {bovenste} naar een andere stapel.");
                 }
 
@@ -111,7 +99,6 @@ public static class ContainerTerminal
                 Console.ReadKey();
                 return;
             }
-        }
 
         Console.WriteLine("Container niet gevonden.");
         Console.ReadKey();
@@ -122,14 +109,11 @@ public static class ContainerTerminal
         Console.WriteLine("Containerterminal");
         Console.WriteLine();
 
-        for (int i = 0; i < stacks.Count; i++)
+        for (var i = 0; i < stacks.Count; i++)
         {
             Console.WriteLine($"Stapel {i + 1}:");
 
-            foreach (string container in stacks[i])
-            {
-                Console.WriteLine($"  {container}");
-            }
+            foreach (var container in stacks[i]) Console.WriteLine($"  {container}");
 
             Console.WriteLine();
         }

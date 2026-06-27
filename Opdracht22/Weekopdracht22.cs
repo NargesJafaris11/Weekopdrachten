@@ -19,11 +19,11 @@ public static class Weekopdracht22
             "Opdracht22/C5A_data_5.csv"
         };
 
-        Stopwatch stopwatch = Stopwatch.StartNew();
+        var stopwatch = Stopwatch.StartNew();
 
-        foreach (string file in files)
+        foreach (var file in files)
         {
-            int sum = await CalculateSumAsync(file);
+            var sum = await CalculateSumAsync(file);
             Console.WriteLine($"{Path.GetFileName(file)}: {sum}");
         }
 
@@ -39,18 +39,15 @@ public static class Weekopdracht22
 
     private static async Task<int> CalculateSumAsync(string filePath)
     {
-        string content = await File.ReadAllTextAsync(filePath);
+        var content = await File.ReadAllTextAsync(filePath);
 
         string[] values = content.Split(
             new[] { ',', '\n', '\r' },
             StringSplitOptions.RemoveEmptyEntries);
 
-        int sum = 0;
+        var sum = 0;
 
-        foreach (string value in values)
-        {
-            sum += int.Parse(value);
-        }
+        foreach (var value in values) sum += int.Parse(value);
 
         return sum;
     }

@@ -1,8 +1,10 @@
+using Weekopdrachten.Helpers;
+
 namespace Weekopdrachten.Opdracht24;
 
 public static class Weekopdracht24
 {
-    private static readonly Mutex Mutex = new Mutex();
+    private static readonly Mutex Mutex = new();
 
     public static void Run()
     {
@@ -17,9 +19,7 @@ public static class Weekopdracht24
         Console.WriteLine("MET Mutex:");
         RunWithMutex();
 
-        Console.WriteLine();
-        Console.WriteLine("Druk op een toets...");
-        Console.ReadKey();
+        ConsoleHelper.Pause();
     }
 
     private static void RunWithoutMutex()
@@ -54,10 +54,7 @@ public static class Weekopdracht24
     {
         Queue<string> queue = new Queue<string>();
 
-        for (int i = 1; i <= 20; i++)
-        {
-            queue.Enqueue($"Item {i}");
-        }
+        for (var i = 1; i <= 20; i++) queue.Enqueue($"Item {i}");
 
         return queue;
     }
@@ -66,7 +63,7 @@ public static class Weekopdracht24
     {
         while (queue.Count > 0)
         {
-            string item = queue.Peek();
+            var item = queue.Peek();
 
             Thread.Sleep(10);
 
@@ -86,12 +83,9 @@ public static class Weekopdracht24
 
             try
             {
-                if (queue.Count == 0)
-                {
-                    break;
-                }
+                if (queue.Count == 0) break;
 
-                string item = queue.Dequeue();
+                var item = queue.Dequeue();
                 Console.WriteLine($"{threadName} leest {item}");
             }
             finally

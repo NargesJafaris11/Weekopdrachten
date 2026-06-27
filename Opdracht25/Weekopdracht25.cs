@@ -1,3 +1,5 @@
+using Weekopdrachten.Helpers;
+
 namespace Weekopdrachten.Opdracht25;
 
 public static class Weekopdracht25
@@ -12,7 +14,7 @@ public static class Weekopdracht25
             Console.WriteLine();
 
             Console.WriteLine("Voer tekst in om uit te printen");
-            string text = Console.ReadLine() ?? "";
+            var text = Console.ReadLine() ?? "";
 
             Console.WriteLine("(1) 1 keer");
             Console.WriteLine("(2) Herhaald");
@@ -21,7 +23,7 @@ public static class Weekopdracht25
             Console.WriteLine("(5) Hoofdletters");
             Console.WriteLine("(0) Terug");
 
-            int choice = int.Parse(Console.ReadLine() ?? "0");
+            var choice = int.Parse(Console.ReadLine() ?? "0");
 
             if (choice == 0)
                 return;
@@ -32,7 +34,7 @@ public static class Weekopdracht25
             {
                 case 2:
                     Console.Write("Hoe vaak? ");
-                    int count = int.Parse(Console.ReadLine() ?? "1");
+                    var count = int.Parse(Console.ReadLine() ?? "1");
                     strategy = new RepeatPrintStrategy(count);
                     break;
 
@@ -53,12 +55,10 @@ public static class Weekopdracht25
                     break;
             }
 
-            Printer printer = new Printer(strategy);
+            var printer = new Printer(strategy);
             printer.Print(text);
 
-            Console.WriteLine();
-            Console.WriteLine("Druk op een toets...");
-            Console.ReadKey();
+            ConsoleHelper.Pause();
         }
     }
 }

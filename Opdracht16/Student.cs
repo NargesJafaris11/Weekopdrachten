@@ -2,9 +2,6 @@ namespace Weekopdrachten.Opdracht16;
 
 public class Student : User
 {
-    public string StudentNumber { get; set; }
-    public string StudyProgram { get; set; }
-
     public Student(
         string name,
         string email,
@@ -16,6 +13,9 @@ public class Student : User
         StudentNumber = studentNumber;
         StudyProgram = studyProgram;
     }
+
+    public string StudentNumber { get; set; }
+    public string StudyProgram { get; set; }
 
     public void EnrollCourse()
     {

@@ -2,16 +2,16 @@ namespace Weekopdrachten.Opdracht16;
 
 public abstract class Material
 {
-    public string Title { get; set; }
-    public string Author { get; set; }
-    public int Year { get; set; }
-
     protected Material(string title, string author, int year)
     {
         Title = title;
         Author = author;
         Year = year;
     }
+
+    public string Title { get; set; }
+    public string Author { get; set; }
+    public int Year { get; set; }
 
     public void Open()
     {

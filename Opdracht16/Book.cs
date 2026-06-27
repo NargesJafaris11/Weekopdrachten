@@ -2,8 +2,6 @@ namespace Weekopdrachten.Opdracht16;
 
 public class Book : Material
 {
-    public int Pages { get; set; }
-
     public Book(
         string title,
         string author,
@@ -13,6 +11,8 @@ public class Book : Material
     {
         Pages = pages;
     }
+
+    public int Pages { get; set; }
 
     public override void DisplayInfo()
     {

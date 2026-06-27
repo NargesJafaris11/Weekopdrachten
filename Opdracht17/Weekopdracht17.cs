@@ -16,7 +16,7 @@ public static class Weekopdracht17
         Console.WriteLine("17-8 Containerterminal");
 
         Console.Write("Maak een keuze: ");
-        string keuze = Console.ReadLine() ?? "";
+        var keuze = Console.ReadLine() ?? "";
 
         switch (keuze)
         {

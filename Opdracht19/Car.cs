@@ -2,13 +2,6 @@ namespace Weekopdrachten.Opdracht19;
 
 public class Car
 {
-    public string Brand { get; set; }
-    public string Type { get; set; }
-    public string Color { get; set; }
-    public string Owner { get; set; }
-    public int Year { get; set; }
-    public string VIN { get; set; }
-
     public Car(string brand, string type, string color, string owner, int year, string vin)
     {
         Brand = brand;
@@ -18,6 +11,13 @@ public class Car
         Year = year;
         VIN = vin;
     }
+
+    public string Brand { get; set; }
+    public string Type { get; set; }
+    public string Color { get; set; }
+    public string Owner { get; set; }
+    public int Year { get; set; }
+    public string VIN { get; set; }
 
     public void DisplayInfo()
     {

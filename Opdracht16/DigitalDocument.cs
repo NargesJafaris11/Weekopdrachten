@@ -2,8 +2,6 @@ namespace Weekopdrachten.Opdracht16;
 
 public class DigitalDocument : Material
 {
-    public string FileType { get; set; }
-
     public DigitalDocument(
         string title,
         string author,
@@ -13,6 +11,8 @@ public class DigitalDocument : Material
     {
         FileType = fileType;
     }
+
+    public string FileType { get; set; }
 
     public override void DisplayInfo()
     {

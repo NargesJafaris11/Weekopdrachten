@@ -30,15 +30,9 @@ public static class Snackbar
         // in dezelfde volgorde als ze binnenkomen: First In, First Out.
         Queue<string> bestellingen = new Queue<string>();
 
-        foreach (string order in orders)
-        {
-            bestellingen.Enqueue(order);
-        }
+        foreach (var order in orders) bestellingen.Enqueue(order);
 
-        while (bestellingen.Count > 0)
-        {
-            Console.WriteLine($"Volgende bestelling: {bestellingen.Dequeue()}");
-        }
+        while (bestellingen.Count > 0) Console.WriteLine($"Volgende bestelling: {bestellingen.Dequeue()}");
         Console.WriteLine();
         Console.WriteLine("Druk op een toets om terug te gaan.");
         Console.ReadKey();

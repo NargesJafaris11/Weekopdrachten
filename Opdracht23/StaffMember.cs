@@ -2,12 +2,6 @@ namespace Weekopdrachten.Opdracht23;
 
 public class StaffMember
 {
-    public string FullName { get; set; }
-    public int Age { get; set; }
-    public string Function { get; set; }
-    public string Department { get; set; }
-    public string StartDate { get; set; }
-
     public StaffMember(string fullName, int age, string function, string department, string startDate)
     {
         FullName = fullName;
@@ -16,6 +10,12 @@ public class StaffMember
         Department = department;
         StartDate = startDate;
     }
+
+    public string FullName { get; set; }
+    public int Age { get; set; }
+    public string Function { get; set; }
+    public string Department { get; set; }
+    public string StartDate { get; set; }
 
     public override string ToString()
     {

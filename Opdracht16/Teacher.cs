@@ -2,9 +2,6 @@ namespace Weekopdrachten.Opdracht16;
 
 public class Teacher : User
 {
-    public string Subject { get; set; }
-    public int YearsExperience { get; set; }
-
     public Teacher(
         string name,
         string email,
@@ -16,6 +13,9 @@ public class Teacher : User
         Subject = subject;
         YearsExperience = yearsExperience;
     }
+
+    public string Subject { get; set; }
+    public int YearsExperience { get; set; }
 
     public void CreateCourse()
     {

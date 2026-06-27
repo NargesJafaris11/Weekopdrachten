@@ -2,14 +2,14 @@ namespace Weekopdrachten.Opdracht19;
 
 public class Garage
 {
-    public string Name { get; set; }
-    public List<Car> Cars { get; set; }
-
     public Garage(string name)
     {
         Name = name;
         Cars = new List<Car>();
     }
+
+    public string Name { get; set; }
+    public List<Car> Cars { get; set; }
 
     public void AddCar(Car car)
     {
@@ -25,10 +25,7 @@ public class Garage
     {
         Console.WriteLine($"Garage: {Name}");
 
-        foreach (Car car in Cars)
-        {
-            car.DisplayInfo();
-        }
+        foreach (var car in Cars) car.DisplayInfo();
 
         Console.WriteLine();
     }

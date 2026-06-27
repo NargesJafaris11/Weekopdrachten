@@ -2,8 +2,6 @@ namespace Weekopdrachten.Opdracht16;
 
 public class Video : Material
 {
-    public int DurationMinutes { get; set; }
-
     public Video(
         string title,
         string author,
@@ -13,6 +11,8 @@ public class Video : Material
     {
         DurationMinutes = durationMinutes;
     }
+
+    public int DurationMinutes { get; set; }
 
     public override void DisplayInfo()
     {

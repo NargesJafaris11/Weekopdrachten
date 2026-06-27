@@ -23,7 +23,7 @@ public static class Weekopdracht26
                 Console.WriteLine();
                 Console.Write($"Speler {currentPlayer}, kies een vakje: ");
 
-                bool validMove = int.TryParse(Console.ReadLine(), out int choice);
+                var validMove = int.TryParse(Console.ReadLine(), out var choice);
 
                 if (!validMove || choice < 1 || choice > 9 || board[choice - 1] == 'X' || board[choice - 1] == 'O')
                 {
@@ -57,12 +57,9 @@ public static class Weekopdracht26
 
             Console.WriteLine();
             Console.Write("Nog een keer spelen? (ja/nee): ");
-            string again = (Console.ReadLine() ?? "").ToLower();
+            var again = (Console.ReadLine() ?? "").ToLower();
 
-            if (again != "ja")
-            {
-                return;
-            }
+            if (again != "ja") return;
         }
     }
 
@@ -78,25 +75,21 @@ public static class Weekopdracht26
     private static bool HasWinner()
     {
         return
-            board[0] == board[1] && board[1] == board[2] ||
-            board[3] == board[4] && board[4] == board[5] ||
-            board[6] == board[7] && board[7] == board[8] ||
-            board[0] == board[3] && board[3] == board[6] ||
-            board[1] == board[4] && board[4] == board[7] ||
-            board[2] == board[5] && board[5] == board[8] ||
-            board[0] == board[4] && board[4] == board[8] ||
-            board[2] == board[4] && board[4] == board[6];
+            (board[0] == board[1] && board[1] == board[2]) ||
+            (board[3] == board[4] && board[4] == board[5]) ||
+            (board[6] == board[7] && board[7] == board[8]) ||
+            (board[0] == board[3] && board[3] == board[6]) ||
+            (board[1] == board[4] && board[4] == board[7]) ||
+            (board[2] == board[5] && board[5] == board[8]) ||
+            (board[0] == board[4] && board[4] == board[8]) ||
+            (board[2] == board[4] && board[4] == board[6]);
     }
 
     private static bool IsDraw()
     {
-        foreach (char field in board)
-        {
+        foreach (var field in board)
             if (field != 'X' && field != 'O')
-            {
                 return false;
-            }
-        }
 
         return true;
     }

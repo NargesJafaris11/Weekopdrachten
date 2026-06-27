@@ -15,7 +15,7 @@ public static class NotSoCleanCodeRefactored
 
     private static void RunCalculator()
     {
-        bool continueCalculating = true;
+        var continueCalculating = true;
 
         while (continueCalculating)
         {
@@ -23,16 +23,12 @@ public static class NotSoCleanCodeRefactored
             Console.WriteLine("Complexere Rekenmachine");
             Console.WriteLine("Kies een operatie: +, -, *, /, %, ^, sqrt, 18+");
 
-            string operation = Console.ReadLine() ?? "";
+            var operation = Console.ReadLine() ?? "";
 
             if (operation == "18+")
-            {
                 CheckAge();
-            }
             else
-            {
                 Calculate(operation);
-            }
 
             Console.WriteLine();
             Console.Write("Wilt u doorgaan? (ja/nee): ");
@@ -42,13 +38,10 @@ public static class NotSoCleanCodeRefactored
 
     private static void Calculate(string operation)
     {
-        double number1 = ReadDouble("Voer het eerste getal in:");
+        var number1 = ReadDouble("Voer het eerste getal in:");
         double number2 = 0;
 
-        if (operation != "sqrt")
-        {
-            number2 = ReadDouble("Voer het tweede getal in:");
-        }
+        if (operation != "sqrt") number2 = ReadDouble("Voer het tweede getal in:");
 
         switch (operation)
         {
@@ -91,10 +84,7 @@ public static class NotSoCleanCodeRefactored
         {
             Console.WriteLine(message);
 
-            if (double.TryParse(Console.ReadLine(), out number))
-            {
-                return number;
-            }
+            if (double.TryParse(Console.ReadLine(), out number)) return number;
 
             Console.WriteLine("Ongeldige invoer, voer een getal in.");
         }
@@ -108,10 +98,7 @@ public static class NotSoCleanCodeRefactored
         {
             Console.WriteLine(message);
 
-            if (int.TryParse(Console.ReadLine(), out number))
-            {
-                return number;
-            }
+            if (int.TryParse(Console.ReadLine(), out number)) return number;
 
             Console.WriteLine("Ongeldige invoer, voer een geheel getal in.");
         }
@@ -119,11 +106,11 @@ public static class NotSoCleanCodeRefactored
 
     private static void CheckAge()
     {
-        int day = ReadInt("Voer je geboortedag in:");
-        int month = ReadInt("Voer je geboortemaand in:");
-        int year = ReadInt("Voer je geboortejaar in:");
+        var day = ReadInt("Voer je geboortedag in:");
+        var month = ReadInt("Voer je geboortemaand in:");
+        var year = ReadInt("Voer je geboortejaar in:");
 
-        bool isValidDate = DateOnly.TryParse($"{year}-{month}-{day}", out DateOnly birthDate);
+        var isValidDate = DateOnly.TryParse($"{year}-{month}-{day}", out var birthDate);
 
         if (!isValidDate)
         {
@@ -131,13 +118,10 @@ public static class NotSoCleanCodeRefactored
             return;
         }
 
-        DateOnly today = DateOnly.FromDateTime(DateTime.Now);
-        int age = today.Year - birthDate.Year;
+        var today = DateOnly.FromDateTime(DateTime.Now);
+        var age = today.Year - birthDate.Year;
 
-        if (birthDate > today.AddYears(-age))
-        {
-            age--;
-        }
+        if (birthDate > today.AddYears(-age)) age--;
 
         Console.WriteLine(age >= 18 ? "Resultaat: 18+" : "Resultaat: jonger dan 18!");
     }

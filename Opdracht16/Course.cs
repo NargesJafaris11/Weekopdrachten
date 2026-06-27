@@ -2,16 +2,16 @@ namespace Weekopdrachten.Opdracht16;
 
 public class Course
 {
-    public string Name { get; set; }
-    public Teacher Teacher { get; set; }
-    public List<Student> Students { get; set; }
-
     public Course(string name, Teacher teacher)
     {
         Name = name;
         Teacher = teacher;
         Students = new List<Student>();
     }
+
+    public string Name { get; set; }
+    public Teacher Teacher { get; set; }
+    public List<Student> Students { get; set; }
 
     public void AddStudent(Student student)
     {
@@ -20,10 +20,7 @@ public class Course
 
     public void ShowStudents()
     {
-        foreach (Student student in Students)
-        {
-            Console.WriteLine(student);
-        }
+        foreach (var student in Students) Console.WriteLine(student);
     }
 
     public override string ToString()

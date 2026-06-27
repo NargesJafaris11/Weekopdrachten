@@ -2,14 +2,14 @@ namespace Weekopdrachten.Opdracht19;
 
 public class WPark
 {
-    public string Name { get; set; }
-    public List<Garage> Garages { get; set; }
-
     public WPark(string name)
     {
         Name = name;
         Garages = new List<Garage>();
     }
+
+    public string Name { get; set; }
+    public List<Garage> Garages { get; set; }
 
     public void AddGarage(Garage garage)
     {
@@ -23,22 +23,16 @@ public class WPark
 
     public void AddCar(string garageName, Car car)
     {
-        Garage? garage = Garages.FirstOrDefault(g => g.Name == garageName);
+        var garage = Garages.FirstOrDefault(g => g.Name == garageName);
 
-        if (garage != null)
-        {
-            garage.AddCar(car);
-        }
+        if (garage != null) garage.AddCar(car);
     }
 
     public void RemoveCar(string garageName, string vin)
     {
-        Garage? garage = Garages.FirstOrDefault(g => g.Name == garageName);
+        var garage = Garages.FirstOrDefault(g => g.Name == garageName);
 
-        if (garage != null)
-        {
-            garage.RemoveCar(vin);
-        }
+        if (garage != null) garage.RemoveCar(vin);
     }
 
     public void DisplayList()
@@ -46,9 +40,6 @@ public class WPark
         Console.WriteLine($"Bedrijf: {Name}");
         Console.WriteLine();
 
-        foreach (Garage garage in Garages)
-        {
-            garage.DisplayList();
-        }
+        foreach (var garage in Garages) garage.DisplayList();
     }
 }

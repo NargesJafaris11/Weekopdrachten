@@ -21,20 +21,14 @@ public static class KortingscodesAlternatief
         // of deze al gebruikt is.
         Dictionary<string, bool> kortingscodes = new();
 
-        foreach (string code in discountCodes)
-        {
-            kortingscodes.Add(code, false);
-        }
+        foreach (var code in discountCodes) kortingscodes.Add(code, false);
 
         while (true)
         {
             Console.Write("Voer een kortingscode in (q = stoppen): ");
-            string code = (Console.ReadLine() ?? "").ToUpper();
+            var code = (Console.ReadLine() ?? "").ToUpper();
 
-            if (code == "Q")
-            {
-                break;
-            }
+            if (code == "Q") break;
 
             if (!kortingscodes.ContainsKey(code))
             {

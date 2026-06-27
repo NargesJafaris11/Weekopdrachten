@@ -23,16 +23,13 @@ public static class Kortingscodes
 
         // Hier bewaren we gebruikte codes.
         HashSet<string> gebruikteCodes = new HashSet<string>();
-        
+
         while (true)
         {
             Console.Write("Voer een kortingscode in (q = stoppen): ");
-            string code = (Console.ReadLine() ?? "").ToUpper();
+            var code = (Console.ReadLine() ?? "").ToUpper();
 
-            if (code == "Q")
-            {
-                break;
-            }
+            if (code == "Q") break;
 
             if (!geldigeCodes.Contains(code))
             {
@@ -50,6 +47,7 @@ public static class Kortingscodes
 
             Console.WriteLine();
         }
+
         Console.ReadKey();
     }
 }

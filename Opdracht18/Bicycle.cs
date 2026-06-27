@@ -24,26 +24,6 @@ public enum BicycleType
 
 public class Bicycle
 {
-    private double _rangeKm;
-
-    public LockType Lock { get; set; }
-    public int FrameHeight { get; set; }
-    public Color Color { get; set; }
-    public BicycleType Type { get; set; }
-    public bool IsLocked { get; private set; }
-
-    public double RangeKm
-    {
-        get { return _rangeKm; }
-        set { _rangeKm = value; }
-    }
-
-    public double RangeMiles
-    {
-        get { return _rangeKm * 0.621371192; }
-        set { _rangeKm = value / 0.621371192; }
-    }
-
     public Bicycle(LockType lockType, int frameHeight, Color color, BicycleType type, double rangeKm)
     {
         Lock = lockType;
@@ -51,6 +31,20 @@ public class Bicycle
         Color = color;
         Type = type;
         RangeKm = rangeKm;
+    }
+
+    public LockType Lock { get; set; }
+    public int FrameHeight { get; set; }
+    public Color Color { get; set; }
+    public BicycleType Type { get; set; }
+    public bool IsLocked { get; private set; }
+
+    public double RangeKm { get; set; }
+
+    public double RangeMiles
+    {
+        get => RangeKm * 0.621371192;
+        set => RangeKm = value / 0.621371192;
     }
 
     public void LockBike()

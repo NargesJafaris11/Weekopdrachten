@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace Weekopdrachten.Opdracht17;
 
 public static class MuziekPlaylist
@@ -46,7 +43,7 @@ public static class MuziekPlaylist
             Console.WriteLine("0. Stoppen");
             Console.Write("Maak een keuze: ");
 
-            string keuze = Console.ReadLine() ?? "";
+            var keuze = Console.ReadLine() ?? "";
 
             switch (keuze)
             {
@@ -62,7 +59,7 @@ public static class MuziekPlaylist
 
                 case "3":
                     Console.Write("Na welke positie toevoegen? ");
-                    int positie = int.Parse(Console.ReadLine() ?? "1");
+                    var positie = int.Parse(Console.ReadLine() ?? "1");
 
                     LinkedListNode<string>? node = ZoekNodeOpPositie(playlist, positie);
 
@@ -74,7 +71,7 @@ public static class MuziekPlaylist
                     else
                     {
                         Console.Write("Nieuw nummer: ");
-                        string nieuwNummer = Console.ReadLine() ?? "";
+                        var nieuwNummer = Console.ReadLine() ?? "";
                         playlist.AddAfter(node, nieuwNummer);
                     }
 
@@ -82,7 +79,7 @@ public static class MuziekPlaylist
 
                 case "4":
                     Console.Write("Welke positie wil je verplaatsen? ");
-                    int oudePositie = int.Parse(Console.ReadLine() ?? "1");
+                    var oudePositie = int.Parse(Console.ReadLine() ?? "1");
 
                     LinkedListNode<string>? teVerplaatsen = ZoekNodeOpPositie(playlist, oudePositie);
 
@@ -93,11 +90,11 @@ public static class MuziekPlaylist
                         break;
                     }
 
-                    string nummer = teVerplaatsen.Value;
+                    var nummer = teVerplaatsen.Value;
                     playlist.Remove(teVerplaatsen);
 
                     Console.Write("Naar welke positie wil je verplaatsen? ");
-                    int nieuwePositie = int.Parse(Console.ReadLine() ?? "1");
+                    var nieuwePositie = int.Parse(Console.ReadLine() ?? "1");
 
                     if (nieuwePositie < 1 || nieuwePositie > playlist.Count + 1)
                     {
@@ -136,9 +133,9 @@ public static class MuziekPlaylist
 
     private static void ToonPlaylist(LinkedList<string> playlist)
     {
-        int i = 1;
+        var i = 1;
 
-        foreach (string nummer in playlist)
+        foreach (var nummer in playlist)
         {
             Console.WriteLine($"{i}. {nummer}");
             i++;
@@ -149,17 +146,11 @@ public static class MuziekPlaylist
         LinkedList<string> playlist,
         int positie)
     {
-        if (positie < 1 || positie > playlist.Count)
-        {
-            return null;
-        }
+        if (positie < 1 || positie > playlist.Count) return null;
 
         LinkedListNode<string>? current = playlist.First;
 
-        for (int i = 1; i < positie; i++)
-        {
-            current = current?.Next;
-        }
+        for (var i = 1; i < positie; i++) current = current?.Next;
 
         return current;
     }

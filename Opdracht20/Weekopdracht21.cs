@@ -1,3 +1,5 @@
+using Weekopdrachten.Helpers;
+
 namespace Weekopdrachten.Opdracht20;
 
 public static class Weekopdracht21
@@ -31,30 +33,19 @@ public static class Weekopdracht21
             new CargoPlane("Blue")
         };
 
-        foreach (Vehicle vehicle in vehicles)
+        foreach (var vehicle in vehicles)
         {
             vehicle.StartEngine();
 
-            if (vehicle is IDrivable drivable)
-            {
-                drivable.Drive();
-            }
+            if (vehicle is IDrivable drivable) drivable.Drive();
 
-            if (vehicle is IFlyable flyable)
-            {
-                flyable.Fly();
-            }
+            if (vehicle is IFlyable flyable) flyable.Fly();
 
-            if (vehicle is ICargoCarrier cargoCarrier)
-            {
-                cargoCarrier.LoadCargo();
-            }
+            if (vehicle is ICargoCarrier cargoCarrier) cargoCarrier.LoadCargo();
 
             vehicle.StopEngine();
             Console.WriteLine();
         }
-
-        Console.WriteLine("Druk op een toets...");
-        Console.ReadKey();
+            ConsoleHelper.Pause();
     }
 }

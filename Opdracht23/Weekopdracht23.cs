@@ -1,3 +1,5 @@
+using Weekopdrachten.Helpers;
+
 namespace Weekopdrachten.Opdracht23;
 
 public static class Weekopdracht23
@@ -36,15 +38,12 @@ public static class Weekopdracht23
 
         List<Task<StaffMember>> tasks = new();
 
-        foreach (string name in staffMemberNames)
-        {
-            tasks.Add(GetStaffMemberAsync(name));
-        }
+        foreach (var name in staffMemberNames) tasks.Add(GetStaffMemberAsync(name));
 
         while (tasks.Count > 0)
         {
             Task<StaffMember> finishedTask = await Task.WhenAny(tasks);
-            StaffMember staffMember = await finishedTask;
+            var staffMember = await finishedTask;
 
             Console.WriteLine(staffMember);
 
@@ -53,8 +52,7 @@ public static class Weekopdracht23
 
         Console.WriteLine();
         Console.WriteLine("Alle personeelsleden zijn geladen.");
-        Console.WriteLine("Druk op een toets...");
-        Console.ReadKey();
+        ConsoleHelper.Pause();
     }
 
     private static async Task<StaffMember> GetStaffMemberAsync(string fullName)

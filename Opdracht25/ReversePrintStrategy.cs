@@ -4,7 +4,7 @@ public class ReversePrintStrategy : IPrintStrategy
 {
     public void Print(string text)
     {
-        char[] letters = text.ToCharArray();
+        var letters = text.ToCharArray();
         Array.Reverse(letters);
         Console.WriteLine(new string(letters));
     }
